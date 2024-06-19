@@ -1,38 +1,497 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  overflow-y: hidden;
+  overflow-x: hidden;
+  background-color: #bcbbbb;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.app {
+  width: 100%; /* Set the width to 100% */
+  box-sizing: border-box;
+  position: relative;
+
+  display: flex;
+}
+.comleteTask {
+  position: absolute;
+  left: 65%;
+  top: 100px;
+}
+.subHeading {
+  color: #fff;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.completeList {
+  padding-left: 350px;
+  margin-top: 100px;
+  height: 800px;
+  width: 100%;
+  background-color: #0a0a0a;
+}
+.completeBox {
+  color: #bcbbbb;
+  margin-top: 0.8em;
+  width: 450px;
+  height: 2em;
+  background-color: rgb(36, 36, 36);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 6px;
+  padding: 5px;
+  padding-left: 15px;
+}
+.taskTitle {
+  color: #bcbbbb;
+  padding-left: 90px;
+  margin-bottom: 30px;
+}
+
+.nav {
+  background-color: #101010;
+  width: 21%;
+  padding: 30px;
+  height: 100vh;
+  position: fixed;
+  /* border-right: 2px solid #181818; */
+}
+.logo {
+  display: flex;
+  width: 100%;
+  background-color: #101010;
+  justify-content: center;
+}
+
+.pageBtn {
+  width: 300px;
+  background-color: #101010;
+  margin-top: 100px;
+  height: auto;
+  padding: 20px;
+  width: 250px;
+}
+.homebtn {
+  color: #bcbbbb;
+  background-color: #101010;
+  border: 2px solid #bdbdbd;
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+}
+
+.homebtn:hover,
+.homebtn.active {
+  cursor: pointer;
+  border-color: #ff5631;
+  color: #ff5631;
+}
+
+.taskbtn {
+  margin-top: 15px;
+  color: #bcbbbb;
+  background-color: #101010;
+  border: 2px solid #bdbdbd;
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+}
+
+.taskbtn:hover,
+.taskbtn.active {
+  cursor: pointer;
+  border-color: #ff5631;
+  color: #ff5631;
+}
+
+.homePage {
+  padding: 20px;
+  position: relative;
+  left: 24%;
+  background-color: #0a0a0a;
+  width: 100%;
+  height: 100vh;
+}
+
+.subHeading {
+  position: absolute;
+  top: 3%;
+  left: 5%;
+}
+.showCompletion {
+  position: absolute;
+  display: flex;
+  width: 32%;
+  height: 120px;
+  top: 7%;
+  left: 20%;
+  border-radius: 20px;
+  border: 2px solid #636363;
+}
+.todoDone {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 60%;
+  height: 100%;
+  border-radius: 20px;
+}
+.showCompletion p{
+  color: #bcbbbb;
+}
+.showCompletion h1{
+  color: #bcbbbb;
+} 
+.completion {
+ 
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100px;
+  height: 100px;
+  background-color: #ff5631;
+  margin-top: 10px;
+  margin-left: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ 
+}
+.completion h1{
+  color: #000000;
+}
+.taskPage {
+  position: relative;
+  left: 24%;
+  background-color: #0a0a0a;
+  width: 100%;
+  height: 100vh;
+}
+.todoList {
+  padding-left: 150px;
+  position: absolute;
+  left: 10%;
+  top: 200px;
+  width: 45%;
+  background-color: #0a0a0a;
+  height: 420px;
+  overflow-y: auto;
 }
 
-.App-link {
-  color: #61dafb;
+.app h1,
+h3 {
+  color: bcbbbb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.input1 {
+  top: 20%;
+  height: 20px;
+  position: absolute;
+  left: 18%;
+  background-color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bottomInput {
+  height: 150px;
+  width: 100%;
+  background-color: #0a0a0a;
+  position: absolute;
+  bottom: 0;
+}
+.app .inputbox {
+  font-size: 16px;
+  margin-top: 0.8em;
+  width: 30em;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 6px;
+  padding: 5px;
+  padding-left: 20px;
+}
+
+.errorMsg {
+  color: red;
+  margin-top: 10px;
+  margin-left: 10px;
+  font-size: 12px;
+}
+.addbtn {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+  background-color: #ff5631;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+textarea:focus,
+input:focus {
+  color: #8d8d8d;
+}
+
+input[type="text"] {
+  padding: 12px 20px;
+  margin: 8px 0;
+
+  background-color: #1e1e1e;
+  border: none;
+  color: #d6d6d6;
+}
+.app .input input {
+  padding: 12px 20px;
+
+  width: 100%;
+  height: 1.6em;
+  border-color: transparent;
+  outline-color: transparent;
+}
+
+.app i {
+  font-size: 20px;
+  cursor: pointer;
+  font-weight: 900;
+  color: rgb(255, 255, 255);
+}
+.app .todos {
+  overflow: hidden;
+  display: flex;
+  width: 500px;
+  flex-direction: column;
+}
+.todo1 {
+  display: flex;
+  width: 500px;
+  align-items: center;
+  justify-items: center;
+  margin-left: 5px;
+}
+.app .todos .todo {
+  margin-top: 0.8em;
+  width: 450px;
+  height: 2em;
+  background-color: rgb(36, 36, 36);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 6px;
+  padding: 5px;
+}
+.app .todos .todo .left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.app .todos .todo .left p {
+  margin-left: 3px;
+  font-size: medium;
+  font-weight: 700;
+  font-style: normal;
+  color: #d4d4d4;
+}
+
+.right {
+  padding-top: 5px;
+  width: auto;
+  display: flex;
+  padding-right: 10px;
+}
+.removeBtn {
+  margin-top: 10px;
+  margin-left: 15px;
+}
+.removeBtn:hover {
+  color: #ff5631;
+}
+
+.hi {
+  color: #ff5631;
+  color: #1e1e1e;
+}
+
+::-webkit-scrollbar {
+  border-radius: 5px;
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 5px;
+
+  background: #262626;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+
+  background: #4d4d4d;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* 
+  .checkbox-wrapper-26 * {
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
   }
-  to {
-    transform: rotate(360deg);
+
+  .checkbox-wrapper-26 input[type="checkbox"] {
+    display: none;
   }
+
+  .checkbox-wrapper-26 label {
+   
+    --size: 25px;
+    --shadow: calc(var(--size) * .07) calc(var(--size) * .1);
+
+    position: relative;
+    display: block;
+    width: var(--size);
+    height: var(--size);
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.2s ease transform, 0.2s ease background-color,
+      0.2s ease box-shadow;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .checkbox-wrapper-26 label:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    width: calc(var(--size) * .7);
+    height: calc(var(--size) * .7);
+    margin: 0 auto;
+    background-color: #fff;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    transition: 0.2s ease width, 0.2s ease height;
+  }
+
+  .checkbox-wrapper-26 label:hover:before {
+    width: calc(var(--size) * .55);
+    height: calc(var(--size) * .55);
+  }
+
+  .checkbox-wrapper-26 label:active {
+    transform: scale(0.9);
+  }
+
+  .checkbox-wrapper-26 .tick_mark {
+    position: absolute;
+    top: -1px;
+    right: 0;
+    left: calc(var(--size) * -.05);
+    width: calc(var(--size) * .6);
+    height: calc(var(--size) * .6);
+    margin: 0 auto;
+    margin-left: calc(var(--size) * .14);
+    transform: rotateZ(-40deg);
+  }
+
+  .checkbox-wrapper-26 .tick_mark:before,
+  .checkbox-wrapper-26 .tick_mark:after {
+    content: "";
+    position: absolute;
+    background-color: #fff;
+    border-radius: 2px;
+    opacity: 0;
+    transition: 0.2s ease transform, 0.2s ease opacity;
+  }
+
+  .checkbox-wrapper-26 .tick_mark:before {
+    left: 0;
+    bottom: 0;
+    width: calc(var(--size) * .1);
+    height: calc(var(--size) * .3);
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.23);
+    transform: translateY(calc(var(--size) * -.68));
+  }
+
+  .checkbox-wrapper-26 .tick_mark:after {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: calc(var(--size) * .1);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.23);
+    transform: translateX(calc(var(--size) * .78));
+  }
+
+  .checkbox-wrapper-26 input[type="checkbox"]:checked + label {
+    background-color: #FF5631;
+  }
+
+  .checkbox-wrapper-26 input[type="checkbox"]:checked + label:before {
+    width: 0;
+    height: 0;
+  }
+
+  .checkbox-wrapper-26 input[type="checkbox"]:checked + label .tick_mark:before,
+  .checkbox-wrapper-26 input[type="checkbox"]:checked + label .tick_mark:after {
+    transform: translate(0);
+    opacity: 1;
+  }
+ */
+
+/* Hide default checkbox */
+.custom-checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+/* Style for custom checkbox */
+.custom-checkbox-label {
+  display: inline-block;
+  width: 16px; /* Width of your custom checkbox */
+  height: 16px; /* Height of your custom checkbox */
+  background-color: #2f2f2f; /* Background color of checkbox */
+  border: 3px solid #ccc; /* Border of checkbox */
+  border-radius: 4px; /* Border radius to make it round */
+  cursor: pointer;
+}
+
+/* Styling when checkbox is checked */
+.custom-checkbox:checked + .custom-checkbox-label {
+  background-color: #10a81f; /* Change background color when checked */
+}
+
+/* Custom checkbox icon (you can use an icon font or SVG here) */
+.custom-checkbox-label::after {
+  content: ""; /* Empty content */
+  display: inline-block;
+  width: 10px; /* Width of the checkmark */
+  height: 10px; /* Height of the checkmark */
+  border: solid #fff; /* Color of the checkmark */
+  border-width: 0 2px 2px 0; /* Style of the checkmark */
+  transform: rotate(45deg); /* Rotate the checkmark */
+  position: relative;
+  left: 2px;
+  top: -1px;
+  visibility: hidden; /* Initially hidden */
+}
+
+/* Show the checkmark when checkbox is checked */
+.custom-checkbox:checked + .custom-checkbox-label::after {
+  visibility: visible;
 }
